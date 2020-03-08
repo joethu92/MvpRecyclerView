@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MvpRecyclerView</string>
+    <string name="click_me">Click Me to See the list !</string>
 </resources>

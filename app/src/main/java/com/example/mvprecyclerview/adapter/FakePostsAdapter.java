@@ -47,8 +47,12 @@ public class FakePostsAdapter extends RecyclerView.Adapter<FakePostsAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.userid)
+        TextView userid;
         @BindView(R.id.titletxt)
         TextView titleTxt;
+        @BindView(R.id.bodytxt)
+        TextView bodytxt;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -56,6 +60,12 @@ public class FakePostsAdapter extends RecyclerView.Adapter<FakePostsAdapter.View
         }
 
         public void bind(Post post) {
+            if (post.getUserId() != 0) {
+                userid.setText(String.valueOf(post.getUserId()));
+            }
+            if (post.getBody() != null && !post.getBody().equalsIgnoreCase("")) {
+                bodytxt.setText(post.getBody());
+            }
             if (post.getTitle() != null && !post.getTitle().equalsIgnoreCase("")) {
                 titleTxt.setText(post.getTitle());
             }
